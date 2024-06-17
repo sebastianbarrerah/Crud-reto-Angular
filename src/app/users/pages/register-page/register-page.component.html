@@ -1,0 +1,35 @@
+
+<form class="register__formulario" [formGroup]="myForm" (ngSubmit)="dataFormRegister()">
+    <fieldset class="register__fieldset">
+        <legend class="register__legend">Registro de usuario</legend>
+
+        <label class="register__label">Nombre</label>
+        <input class="register__input" type="text" placeholder="John Doe" formControlName="name" autofocus>
+        @if (myForm.controls['name'].getError('required')) {
+            <div style="color: red;">Este campo es requerido</div>
+        }
+        @if (myForm.controls['name'].getError('minlength')) {
+            <div style="color: red;">Minimo deben ser 3 caracteres</div>
+        }
+       
+        <label class="register__label">Correo electronico</label>
+        <input class="register__input" type="email" placeholder="JonhDoe@gmail.com" formControlName="email">
+        @if (myForm.controls['email'].getError('required')) {
+            <div style="color: red;">Este campo es requerido</div>
+        }
+       
+        <label class="register__label">Contraseña</label>
+        <input class="register__input" type="password" placeholder="*****" formControlName="password">
+        @if (myForm.controls['password'].getError('required')) {
+            <div style="color: red;">Este campo es requerido</div>
+        }
+       
+        <button class="register__btn" [disabled]="myForm.invalid">Entrar</button>
+    </fieldset>
+    <a class="register__ancora">¿Ya tienes cuenta? Inicia Sesión</a>
+</form>
+
+<pre>
+    {{myForm.controls['name'].errors | json}}
+</pre>
+<h1>algo</h1>

@@ -1,0 +1,20 @@
+
+<form class="login__formulario" [formGroup]="myForm" (ngSubmit)="dataForm()">
+    <fieldset class="login__fieldset">
+        <legend class="login__legend">Inicio de Sesión</legend>
+
+        <label class="login__label">Correo Electronico</label>
+        <input class="login__input" type="email" placeholder="sofka@gmail.com" formControlName="email" autofocus>
+        @if (myForm.controls['email'].getError('required')) {
+            <div style="color: rgb(255, 0, 0);">Este campo es necesario</div>
+        }
+        @if (myForm.controls['email'].getError('email')) {
+            <div style="color: rgb(255, 0, 0);">No es un email valido</div>
+        }
+        <label class="login__label">Contraseña</label>
+        <input class="login__input" type="password" placeholder="sofka123" formControlName="password">
+
+        <button class="login__btn" [disabled]="myForm.invalid">Entrar</button>
+    </fieldset>
+    <a class="login__register">¿No tienes cuenta? Registrate</a>
+</form>

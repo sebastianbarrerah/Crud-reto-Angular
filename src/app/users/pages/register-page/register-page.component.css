@@ -1,0 +1,60 @@
+.register__formulario{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgb(69 165 164);
+    border-radius: 10px;
+    border: 1px solid yellow;
+    padding: 20px;
+    margin: 0 auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    .register__fieldset{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border: 1px solid yellow;
+        gap: 5px;
+        border-radius: 7px;
+        .register__legend{
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-align: start;
+            color: rgb(247, 247, 247);
+        }
+        .register__label{
+            font-size: 17px;
+        }
+
+        .register__input{
+            width: 80%;
+            height: 35px;
+            align-self: center;
+            margin-bottom: 20px;
+            border-radius: 7px;
+            border: none;
+            font-size: 18px;
+        }
+
+        .register__btn{
+            width: 25%;
+            height: 39px;
+            align-self: center;
+            border-radius: 7px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .register__btn:hover{
+            background-color: rgb(248, 240, 87);
+            transition: 1s;
+        }
+    }
+    .register__ancora{
+        cursor: pointer;
+        color: rgb(245, 245, 250);
+        text-decoration: underline;
+    }
+}
