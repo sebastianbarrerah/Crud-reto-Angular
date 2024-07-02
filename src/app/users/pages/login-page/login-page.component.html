@@ -16,5 +16,5 @@
 
         <button class="login__btn" [disabled]="myForm.invalid">Entrar</button>
     </fieldset>
-    <a class="login__register">¿No tienes cuenta? Registrate</a>
+    <a class="login__register" [routerLink]="['/register']" routerLinkActive="router-link-active"  >¿No tienes cuenta? Registrate</a>
 </form>

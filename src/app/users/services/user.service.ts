@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { UserInterface } from '../interfaces/user-interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  // para las notas
+  private BASE_URL:string = "http://localhost:3000"
+
   constructor(private http: HttpClient){}
 
-  
-  // getData():Observable<Welcome>{
-  //   return this.http.get<Welcome>(url)
-  // }
+  // user registro y login
+  dataUsers(ruta:string, data:object):Observable<UserInterface>{
+    return this.http.post<UserInterface>(`${this.BASE_URL}/${ruta}`, data)
+  }
 }
 
 

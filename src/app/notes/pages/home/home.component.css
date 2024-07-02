@@ -1,0 +1,79 @@
+.navbar{
+    width: 100%;
+    background-color: rgb(69 165 164);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    .btn__add{
+        width: 4%;
+        height: 40px;
+        margin-left: 80px;
+        border: none;
+        border-radius: 5px;
+        img{
+            width: 32px;
+        }
+    }
+    .container__btn{
+        width: 40%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-right: 40px;
+        display: none;
+    }
+    .container__btn2{
+        width: 40%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-right: 40px;
+        .delete{
+            width: 12%;
+            height: 42px;
+            border: none;
+            border-radius: 5px;
+            img{
+                width: 30px;
+            }
+        }
+        .edit{
+            width: 12%;
+            height: 42px;
+            border: none;            
+            border-radius: 5px;
+            img{
+                width: 30px;
+            }
+        }
+        .save{
+            width: 12%;
+            height: 42px;
+            border: none;
+            border-radius: 5px;
+            img{
+                width: 30px;
+            }
+        }
+    }
+    .logout{
+        background-color: rgb(255, 90, 90);
+        width: 12%;
+        height: 42px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 40px;
+        cursor: pointer;
+        img{
+            width: 30px;
+        }
+    }
+    .logout:hover{
+        font-weight: bold;
+        color: white;
+        background-color: red;
+    }
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: rgb(255, 239, 68);
+}

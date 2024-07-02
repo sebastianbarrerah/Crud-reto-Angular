@@ -1,0 +1,20 @@
+<nav class="navbar">
+    <button class="btn__add" > 
+        <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Agregar" (click)="add()">
+    </button>
+    <div [ngClass]="changeState? 'container__btn2': 'container__btn'" >
+        <button class="delete">
+            <img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" alt="Borrar" (click)="metodoDelete()">
+        </button>
+        <button class="edit">
+            <img src="https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="Editar">
+        </button>
+        <button class="save">
+            <img src="https://cdn-icons-png.flaticon.com/512/69/69539.png" alt="guardar">
+        </button>
+    </div>
+    <button class="logout" (click)="onLogout()">Cerrar Sesión</button>
+</nav>
+<main class="container__cards">
+    <user-notes [toggle]="stateToggle" (stateBtn)="mostrarBotones()" />
+</main>

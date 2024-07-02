@@ -1,0 +1,103 @@
+.container__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-image: url("https://infoeducacion.net/wp-content/uploads/2020/06/como-organizar-apuntes.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 90%;
+  height: 100vh;
+  .nota {
+    width: 20%;
+    height: 21rem;
+    margin: 0 20px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .titulo {
+      position: relative;
+      bottom: 18rem;
+      left: 10px;
+      width: 90%;
+    }
+    .parrafo {
+      position: relative;
+      bottom: 18rem;
+      left: 15px;
+      width: 90%;
+    }
+    .fecha {
+      position: relative;
+      bottom: 18rem;
+      left: 18px;
+      width: 90%;
+    }
+    .estado {
+      position: relative;
+      bottom: 18rem;
+      left: 18px;
+      width: 90%;
+    }
+  }
+  .nota:hover {
+    filter: drop-shadow(24px 6px 12px rgb(0, 0, 0));
+    opacity: 90%;
+  }
+  /* .nota2{
+      font-size: 17px;
+      color: rgb(5, 76, 255);
+      filter: drop-shadow(24px 6px 12px  rgb(255, 1, 1));
+      
+    } */
+  /* -moz-user-select: element;
+    -webkit-user-select: all;
+    -ms-user-select: all;
+      user-select: contain; */
+  .active{
+    display: none;
+  }
+  .add__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    z-index: 1000;
+    .add__div {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      left: 7%;
+      top: 28%;
+      width: 82%;
+       input{
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        background-color: transparent;
+        font-size: 21px;
+      }
+      textarea{
+        background-color: transparent;
+        font-size: 20px;
+        border: none;
+      }
+      button{
+        width: 30%;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        font-size: 19px;
+      }
+      button:hover{
+        background-color: rgb(59, 164, 190);
+        cursor: pointer;
+        color: white;
+      }
+    }
+  }
+}

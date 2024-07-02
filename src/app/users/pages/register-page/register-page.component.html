@@ -26,10 +26,5 @@
        
         <button class="register__btn" [disabled]="myForm.invalid">Entrar</button>
     </fieldset>
-    <a class="register__ancora">¿Ya tienes cuenta? Inicia Sesión</a>
+    <a class="register__ancora" [routerLink]="['/']" routerLinkActive="router-link-active" >¿Ya tienes cuenta? Inicia Sesión</a>
 </form>
-
-<pre>
-    {{myForm.controls['name'].errors | json}}
-</pre>
-<h1>algo</h1>

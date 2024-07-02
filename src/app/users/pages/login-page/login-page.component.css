@@ -7,7 +7,8 @@
     border-radius: 10px;
     border: 1px solid yellow;
     padding: 20px;
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 8%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     .login__fieldset{
         display: flex;
@@ -54,7 +55,13 @@
     }
     .login__register{
         cursor: pointer;
-        color: rgb(1, 30, 247);
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+        width: max-content;
+    }
+    .login__register:hover{
+        cursor: pointer;
+        color: rgb(255, 239, 9);
         text-decoration: underline;
     }
 }
