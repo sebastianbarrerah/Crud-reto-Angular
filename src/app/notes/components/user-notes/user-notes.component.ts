@@ -64,13 +64,22 @@ export class UserNotesComponent implements OnInit{
   deleteNote(){
     const id = localStorage.getItem("nota");
     console.log(id);
-    this.http.removeNoteByid(id).subscribe((data) => {
       Swal.fire({
-        title: `Eliminaste la nota titulada ${data.title}`,
-        icon: "success"
+        title: `¿Esta seguro que quiere eliminar la nota?`,
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Eliminar",
+        denyButtonText: `No eliminar`
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.http.removeNoteByid(id).subscribe((data) => console.log(data)
+          )
+          Swal.fire(`Ha eliminado la nota ${window.location.reload()}`, "", "success");
+          
+        } else if (result.isDenied) {
+          Swal.fire("La nota no ha sido eliminada", "", "info");
+        }
       });
-    })
-    window.location.reload()
-  }
+    }
   
 }
