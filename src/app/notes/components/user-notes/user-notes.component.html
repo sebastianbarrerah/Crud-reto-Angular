@@ -1,5 +1,6 @@
 
     <section class="container__card">
+    <h1>{{toggle}}</h1>
 
         <form  [formGroup]="formCreate" [ngClass]="toggle? 'add__form' : 'active' ">
             <img src="https://i.pinimg.com/originals/25/08/16/250816e40d33f791160e9a148c59a358.png" alt="" class="add__img">
@@ -7,7 +8,16 @@
                 <input type="text" class="add__input1" placeholder="Aquí el titulo de la nota" formControlName="title">
                 <textarea  class="add__input2" cols="45" rows="7" placeholder="Aquí la descripción" formControlName="description"></textarea>
                 <input type="number" class="add__input3" placeholder="¿en cuantos dias?" formControlName="vencimiento">
-                <button (click)="addNote()">Crear</button>
+                <button (click)="addNote()" [disabled]="formCreate.invalid">Crear</button>
+            </div>
+        </form>
+        <form  [formGroup]="formCreate" [ngClass]="toggle? 'add__form' : 'active' ">
+            <img src="https://i.pinimg.com/originals/25/08/16/250816e40d33f791160e9a148c59a358.png" alt="" class="add__img">
+            <div class="add__div">
+                <input type="text" class="add__input1" placeholder="Aquí el titulo de la nota" formControlName="title">
+                <textarea  class="add__input2" cols="45" rows="7" placeholder="Aquí la descripción" formControlName="description"></textarea>
+                <input type="number" class="add__input3" placeholder="¿en cuantos dias?" formControlName="vencimiento">
+                <button (click)="addNote()" [disabled]="formCreate.invalid">Crear</button>
             </div>
         </form>
 
@@ -25,4 +35,3 @@
         }
     </section>
     
-    <h1>{{toggle}}</h1>

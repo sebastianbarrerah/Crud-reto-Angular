@@ -1,4 +1,4 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NoteService } from '../../services/note.service';
 import Swal from 'sweetalert2';
@@ -12,9 +12,10 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent{
+export class HomeComponent {
   @ViewChild(UserNotesComponent) userNotas!: UserNotesComponent;
   constructor(private http: NoteService, private router: Router){}
+  
   private userId:string | null = localStorage.getItem("user")
   public stateToggle:boolean = false;
   onLogout(){
@@ -28,6 +29,7 @@ export class HomeComponent{
     });
   }
   public changeState: boolean = false
+
   mostrarBotones(){
     this.changeState = true
   }

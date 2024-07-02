@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NoteService } from '../../services/note.service';
 import { Router } from '@angular/router';
@@ -18,10 +18,11 @@ export class UserNotesComponent implements OnInit{
   @Output() stateBtn: EventEmitter<boolean> = new EventEmitter(false);
   constructor(private http: NoteService, private router: Router, private form: FormBuilder){}
   
+  
   public formCreate: FormGroup = this.form.group({
     title: ['', [Validators.required, Validators.maxLength(40)]],
     description: ['', [Validators.required, Validators.maxLength(40)]],
-    vencimiento: [Validators.required, Validators.maxLength(2)]
+    vencimiento: ['' ,[Validators.required, Validators.maxLength(2)]]
   })
   
     public dataNotes:noteInterface[] = [];
@@ -35,7 +36,6 @@ export class UserNotesComponent implements OnInit{
   }
 
   addNote(){
-   
     if(this.formCreate.invalid) return
     const data = {
       title: this.formCreate.controls['title'].value,
@@ -45,15 +45,17 @@ export class UserNotesComponent implements OnInit{
     
     this.http.addNewNote(this.userId, data).subscribe(res => {
       this.dataNotes.push(res)
+      Swal.fire({
+        title: "Agregaste una nota con exito",
+        text: "",
+        icon: "success"
+      });
+      this.toggle = false;
+      console.log(this.toggle);
+      if (this.toggle == false) {
+        window.location.reload()
+      }
     })
-    Swal.fire({
-      title: "Agregaste una nota con exito",
-      text: "",
-      icon: "success"
-    });
-    this.toggle = false;
-    console.log(this.toggle);
-    
   }
 
   getSeleccion(item:noteInterface){
@@ -61,25 +63,30 @@ export class UserNotesComponent implements OnInit{
     this.stateBtn.emit(true)
   }
 
-  deleteNote(){
+  deleteNote():void{
     const id = localStorage.getItem("nota");
-    console.log(id);
-      Swal.fire({
-        title: `¿Esta seguro que quiere eliminar la nota?`,
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: "Eliminar",
-        denyButtonText: `No eliminar`
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.http.removeNoteByid(id).subscribe((data) => console.log(data)
-          )
-          Swal.fire(`Ha eliminado la nota ${window.location.reload()}`, "", "success");
-          
-        } else if (result.isDenied) {
-          Swal.fire("La nota no ha sido eliminada", "", "info");
-        }
-      });
-    }
-  
+    Swal.fire({
+      title: `¿Esta seguro que quiere eliminar la nota?`,
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Eliminar",
+      denyButtonText: `No eliminar`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.http.removeNoteByid(id).subscribe(() => {
+          this.dataNotes = this.dataNotes.filter(note => note._id !== id);
+        })
+        Swal.fire(`Ha eliminado la nota`, "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("La nota no ha sido eliminada", "", "info");
+      }
+    });
+     
+  }
+
+    // updateNoteSelected():void{
+    // const idNote = localStorage.getItem("nota");
+    //   this.http.updateNote(idNote)
+    // }
+
 }
