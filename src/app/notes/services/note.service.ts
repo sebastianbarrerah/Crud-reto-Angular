@@ -27,7 +27,7 @@ export class NoteService {
   }
 
   // Actualizar una nota
-  updateNote(idNota:String, data:object):Observable<noteInterface>{
+  updateNote(idNota:String | null, data:object):Observable<noteInterface>{
     return this.http.patch<noteInterface>(`${this.BASE_URL}/actualizar/${idNota}`, data)
   }
 

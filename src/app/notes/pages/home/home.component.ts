@@ -18,6 +18,7 @@ export class HomeComponent {
   
   private userId:string | null = localStorage.getItem("user")
   public stateToggle:boolean = false;
+  public stateToggleUpdate:boolean = false;
   onLogout(){
     this.http.close(this.userId)
     localStorage.clear()
@@ -41,5 +42,10 @@ export class HomeComponent {
   add(){
     this.stateToggle = true;
     console.log(this.stateToggle);
+  }
+  
+  updateNote(){
+    this.stateToggleUpdate = true;
+    console.log(this.stateToggleUpdate);
   }
 }

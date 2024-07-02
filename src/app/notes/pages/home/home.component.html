@@ -7,7 +7,7 @@
             <img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" alt="Borrar" (click)="metodoDelete()">
         </button>
         <button class="edit">
-            <img src="https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="Editar">
+            <img src="https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="Editar" (click)="updateNote()">
         </button>
         <button class="save">
             <img src="https://cdn-icons-png.flaticon.com/512/69/69539.png" alt="guardar">
@@ -16,5 +16,5 @@
     <button class="logout" (click)="onLogout()">Cerrar Sesión</button>
 </nav>
 <main class="container__cards">
-    <user-notes [toggle]="stateToggle" (stateBtn)="mostrarBotones()" />
+    <user-notes [toggle]="stateToggle" (stateBtn)="mostrarBotones()" [toggleUpdate]="stateToggleUpdate"/>
 </main>
