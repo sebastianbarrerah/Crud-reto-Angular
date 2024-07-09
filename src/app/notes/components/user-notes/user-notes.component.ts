@@ -42,8 +42,8 @@ export class UserNotesComponent implements OnInit {
 
   updateFormInitial(){
     this.formUpdate = this.form.group({
-      title: [`${this.notaSelect?.title}`, [Validators.maxLength(40)]],
-      description: [`${this.notaSelect?.description}`, [Validators.maxLength(40)]],
+      title: [`${this.notaSelect?.title}`, [Validators.maxLength(60)]],
+      description: [`${this.notaSelect?.description}`, [Validators.maxLength(200)]],
     })
   }
   

@@ -37,6 +37,7 @@ export class LoginPageComponent {
           icon: "success"
         });
         localStorage.setItem("user", response._id);
+        localStorage.setItem("state", "true");
         this.route.navigate(['/home'])
       }else{
         Swal.fire({

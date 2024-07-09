@@ -16,7 +16,7 @@
             <div class="add__div">
                 <input type="text" class="add__input1" placeholder="Aquí el titulo de la nota" formControlName="title">
                 <textarea  class="add__input2" cols="45" rows="7" placeholder="Aquí la descripción" formControlName="description"></textarea>
-                <button (click)="updateNoteSelected()">Crear</button>
+                <button (click)="updateNoteSelected()">Actualizar</button>
             </div>
         </form>
 
@@ -30,7 +30,7 @@
                 <p class="estado"> <strong>Estado:</strong>  pendiente</p>
             </div>
         }@empty {
-            <h1 style="font-size: 30px; color: rgb(30, 41, 42); height: 100vh;">No Tienes notas, puedes crear una en el boto de + </h1>
+            <h1 style="font-size: 30px; color: rgb(30, 41, 42); height: 100vh;">No Tienes notas, puedes crear una en el boto de ➕</h1>
         }
     </section>
     
