@@ -9,7 +9,7 @@ import { noteInterface } from '../interfaces/notes-interface';
 export class NoteService {
 
   constructor(private http: HttpClient) { }
-    private BASE_URL:string = "http://localhost:3000"
+    private BASE_URL:string = "https://crud-reto-express.onrender.com"
 
    // Cerrar sesión
    close(id: string | null){

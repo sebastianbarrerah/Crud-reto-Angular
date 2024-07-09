@@ -9,7 +9,7 @@ import { UserInterface } from '../interfaces/user-interface';
 export class UserService {
 
   // para las notas
-  private BASE_URL:string = "http://localhost:3000"
+  private BASE_URL:string = "https://crud-reto-express.onrender.com"
 
   constructor(private http: HttpClient){}
 
